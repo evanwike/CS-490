@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors!</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div id="app">
+    <div class="container">
+        <div id="header">
+            ROCK PAPER SCISSORS
+        </div>
+
+        <div id="info">
+            Select an image below to begin.
+            <div id="log" v-if="user_choice">
+                <div>User selects {{ user_choice }}</div>
+                <div>Computer selects {{ comp_choice }}</div>
+            </div>
+
+            <div id="win_text" v-if="win_text && !user_choice">
+                {{ win_text }}
+            </div>
+        </div>
+
+        <table id="board">
+            <tr>
+                <td v-for="tile in board">
+                    <img v-bind:src="tile.src" @click="pick(tile.val)"/>
+                </td>
+            </tr>
+        </table>
+
+        <div id="scoreboard">
+            <div v-for="score in scores">{{ score.text }}: <span class="score">{{ score.val }}</span></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<div class="parent-container">
+  <div class="child-container">
+    <h2>FoodFinder.io</h2>
+
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="name" class="pull-left">Type of Food</label>
+          <input id="name" type="text" class="form-control" #recipe placeholder="What's your favorite type of food?">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="place" class="pull-left">Location</label>
+          <input id="place" type="text" class="form-control" #place placeholder="Current location">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <button type="button" class="btn btn-primary" (click)="getVenues()">Go</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="panel panel-default" *ngIf="venueList.length > 0">
+        <div class="panel-heading"><b>Where to get</b></div>
+        <div class="panel-body">
+          <div *ngFor="let venue of venueList" class="list-group-item clearfix">
+            <div class="pull-left">
+              <h4 class="list-group-item-heading">{{ venue.name }}</h4>
+            </div>
+            <span class="pull-right">
+             <a href="http://maps.google.com/maps?saddr={{currentLat}},{{currentLong}}
+             &daddr={{venue.location.address}},{{venue.location.formattedAddress[1]}},{{venue.location.formattedAddress[2]}}">
+               <img src="../../assets/google.png" style="width: 30px; height: 30px;"></a>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

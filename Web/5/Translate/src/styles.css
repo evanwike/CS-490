@@ -1,0 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Alfa+Slab+One|Oswald|Lato|Yellowtail');
+
+html, body, app-root {
+  background: rgba(46, 49, 49, 1);
+}

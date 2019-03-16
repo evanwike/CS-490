@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">LoginApp</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="login">Login</string>
+    <string name="usernameHint">Username</string>
+    <string name="passwordHint">Password</string>
+    <string name="loginBtn">Login</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="welcome">Welcome</string>
+    <string name="logoutBtn">Logout</string>
+</resources>

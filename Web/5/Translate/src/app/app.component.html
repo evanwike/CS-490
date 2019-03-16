@@ -1,0 +1,35 @@
+<div class="wrap">
+  <div class="container center">
+    <h2>Translate.io</h2>
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col">
+            <select id="lang1" class="form-control" [(ngModel)]="fromLang" (change)="translate()">
+              <option *ngFor="let lang of langs" [value]="lang[0]">{{lang[1]}}</option>
+            </select>
+          </div>
+          <button class="btn btn-outline-dark" (click)="swap()"><i class="fas fa-exchange-alt"></i></button>
+          <div class="col">
+            <select id="lang2" class="form-control" [(ngModel)]="toLang" (change)="translate()">
+              <option *ngFor="let lang of langs" [value]="lang[0]">{{lang[1]}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <label for="user-input">From</label>
+            <textarea id="user-input" [(ngModel)]="userInput" (keydown)="translate()"></textarea>
+          </div>
+          <div class="col">
+            <label for="translated">To</label>
+            <textarea id="translated" [(ngModel)]="translated" readonly></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="info" class="float-right"><span>Powered By:</span><a href="http://translate.yandex.com/">Yandex.Translate</a></div>
+  </div>
+</div>

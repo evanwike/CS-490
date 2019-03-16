@@ -1,0 +1,61 @@
+@import 'https://fonts.googleapis.com/css?family=Oswald';
+
+#app {
+    text-align: center;
+    user-select: none;
+    font-family: 'Oswald', serif;
+}
+
+#header {
+    font-size: 50px;
+    font-weight: bold;
+    height: 55px;
+    text-decoration: underline;
+}
+
+#info, #scoreboard {
+    font-size: 25px;
+}
+
+#info {
+    margin-top: 5px;
+}
+
+#scoreboard {
+    margin-top: 20px;
+}
+
+#log {
+    font-size: 20px;
+}
+
+#board {
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+td {
+    vertical-align: middle;
+}
+
+td:hover {
+    cursor: pointer;
+    opacity: .5;
+}
+
+@media screen and (max-width: 450px) {
+    #header {
+        font-size: 30px;
+        height: 30px;
+    }
+    #info {
+        font-size: 15px;
+    }
+}

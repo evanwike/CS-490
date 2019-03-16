@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container">
+    <h1>To Do List for 2019</h1>
+    <div class="todo-list">
+      <div class="todo-list__head">
+        <input type="text" class="todo-list-head__text-input" #text ngModel>
+        <button type="submit" class="toto-list-head__submit" (click)="submitNewItem(text.value)">Add</button>
+      </div>
+      <ul class="todo-list__items">
+        <li *ngFor="let todo of items; let i = index" [attr.data-index]="i" (click)="completeItem(todo)" [class.completed]="todo.complete">
+          <span>{{i + 1}}</span>{{todo.val}}<i class="fas fa-trash-alt todo-list-item__trash" (click)="deleteItem(todo)"></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

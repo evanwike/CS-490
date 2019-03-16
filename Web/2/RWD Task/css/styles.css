@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display');
+
+.container {
+    text-transform: uppercase;
+    font-family: 'Playfair Display', serif;
+}
+
+.row {
+    margin: 0;
+}
+
+.col-xs-4 {
+    padding: 0;
+}
+
+#header {
+    position: relative;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+}
+
+#pic {
+    position: absolute;
+    left: 0;
+}
+
+#about {
+    height: 100px;
+    width: 300px;
+    position: absolute;
+    right: 0;
+    text-align: right;
+}
+
+#about div {
+    position: absolute;
+    right: 0;
+}
+
+#about_name {
+    height: 50px;
+    font-size: 50px;
+    bottom: 20px;
+}
+
+#about_designation {
+    height: 20px;
+    font-size: 20px;
+    bottom: 0;
+}
+
+#name {
+    height: 70px;
+    width: 300px;
+    font-size: 50px;
+    line-height: 50px;
+}
+
+#designation {
+    height: 30px;
+    width: 300px;
+    font-size: 30px;
+    line-height: 30px;
+}
+
+#content {
+    position: relative;
+    margin-top: 10px;
+}
+
+#bottom_content {
+    text-align: center;
+}
+
+#top {
+    background: black;
+    width: 100%;
+}
+
+#top img {
+    width: 100%;
+}
+
+#featured {
+    font-size: 5vw;
+}
+
+.tile {
+    width: 100%;
+    margin: 0;
+}
+
+.tile img {
+    width: 100%;
+}
+
+.tile_title {
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 4vw;
+}
+
+.tile_url {
+    width: 100%;
+    font-size: 1vw;
+}
+
+#mid {
+    border-left: 5px solid white;
+    border-right: 5px solid white;
+}

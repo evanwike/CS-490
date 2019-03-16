@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+</head>
+<body>
+<div id="calc">
+  <!----Screen---->
+  <div id="screen">
+    <div id='current'>{{currVal}}</div>
+    <div id='expression'>{{view.join('')}}</div>
+  </div>
+  <!----Buttons---->
+  <div class='container'>
+    <div class='row'>
+      <button class='col' (click)="clear()">C</button>
+      <button class='col' (click)="press('%')">%</button>
+      <button class='col' (click)="press('/')">/</button>
+    </div>
+    <div class='row'>
+      <button class='col' (click)="press(7)">7</button>
+      <button class='col' (click)="press(8)">8</button>
+      <button class='col' (click)="press(9)">9</button>
+      <button class='col' (click)="press('*')">x</button>
+    </div>
+    <div class='row'>
+      <button class='col' (click)="press(4)">4</button>
+      <button class='col' (click)="press(5)">5</button>
+      <button class='col' (click)="press(6)">6</button>
+      <button class='col' (click)="press('-')">-</button>
+    </div>
+    <div class='row'>
+      <button class='col' (click)="press(1)">1</button>
+      <button class='col' (click)="press(2)">2</button>
+      <button class='col' (click)="press(3)">3</button>
+      <button class='col' (click)="press('+')">+</button>
+    </div>
+    <div class='row'>
+      <button class='col' (click)="press(0)">0</button>
+      <button class='col' (click)="evaluate()">=</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

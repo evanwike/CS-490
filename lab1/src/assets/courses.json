@@ -1,0 +1,474 @@
+{
+  "Development": {
+    "Web Development": [
+      {
+        "name": "The Web Developer Bootcamp",
+        "desc": "The only course you need to learn web development - HTML, CSS, JS, Node, and More!",
+        "rating": 4.6,
+        "students": 385361,
+        "instructor": "Colt Steele",
+        "bestSeller": true,
+        "src": "dev/web/1",
+        "price": 199.99
+      },
+      {
+        "name": "Angular 7 - The Complete Guide",
+        "desc": "Master Angular (Angular 2+, incl. Angular 7) and build awesome, reactive web apps with successor of Angular.js",
+        "rating": 4.6,
+        "students": 235388,
+        "instructor": "Maximilian Schwarzmuller",
+        "bestSeller": true,
+        "src": "dev/web/2",
+        "price": 189.99
+      },
+      {
+        "name": "The Complete Web Developer Course 2.0",
+        "desc": "Learn Web Development by building 25 websites and mobile apps using HTML, CSS, Javascript, PHP, Python, MySQL & more!",
+        "rating": 4.5,
+        "students": 204765,
+        "instructor": "Rob Percival",
+        "bestSeller": false,
+        "src": "dev/web/3",
+        "price": 199.99
+      },
+      {
+        "name": "The Complete JavaScript Course 2019: Build Real Projects!",
+        "desc": "Master JavaScript with the most complete course on the market! Projects, challenges, quizzes, ES6+, OOP, AJAX, Webpack",
+        "rating": 4.5,
+        "students": 172288,
+        "instructor": "Jonas Schmedtmann",
+        "bestSeller": false,
+        "src": "dev/web/4",
+        "price": 199.99
+      }
+    ],
+    "Mobile Apps": [
+      {
+        "name": "The Complete Android N Developer Course",
+        "desc": "Learn Android App Development with Android 7 Nougat by building real apps including Uber, Whatsapp and Instagram!",
+        "rating": 4.4,
+        "students": 105981,
+        "instructor": "Rob Percival",
+        "bestSeller": true,
+        "src": "dev/mbl/1",
+        "price": 199.99
+      },
+      {
+        "name": "iOS 11 & Swift 4 - The Complete iOS App Development Bootcamp",
+        "desc": "Learn iOS 11 App Development From Beginning to End. Using Xcode 9 and Swift 4. Includes Full ARKit and CoreML Modules!",
+        "rating": 4.6,
+        "students": 107039,
+        "instructor": "Angela Yu",
+        "bestSeller": false,
+        "src": "dev/mbl/2",
+        "price": 199.99
+      },
+      {
+        "name": "The Complete React Native and Redux Course",
+        "desc": "iOS and Android App Development from scratch - build full React Native mobile apps ridiculously fast!",
+        "rating": 4.5,
+        "students": 85027,
+        "instructor": "Stephen Grider",
+        "bestSeller": false,
+        "src": "dev/mbl/3",
+        "price": 94.99
+      },
+      {
+        "name": "The Complete iOS 10 & Swift 3 Developer Course",
+        "desc": "Learn iOS App Development by building 21 iOS apps using Swift 3 & Xcode 8. Includes free web hosting, assets & ebook.",
+        "rating": 4.4,
+        "students": 61357,
+        "instructor": "Rob Percival",
+        "bestSeller": false,
+        "src": "dev/mbl/4",
+        "price": 199.99
+      }
+    ],
+    "Programming Languages": [
+      {
+        "name": "Complete Python Bootcamp: Go from zero to hero in Python 3",
+        "desc": "Learn Python like a Professional! Start from the basics and go all the way to creating your own applications and games!",
+        "rating": 4.5,
+        "students": 509467,
+        "instructor": "Jose Portilla",
+        "bestSeller": true,
+        "src": "dev/prog/1",
+        "price": 194.99
+      },
+      {
+        "name": "Java Programming Masterclass for Software Developers",
+        "desc": "Learn Java In This Course And Become a Computer Programmer. Obtain valuable Core Java Skills And Java Certification",
+        "rating": 4.6,
+        "students": 297295,
+        "instructor": "Tim Buchalka",
+        "bestSeller": true,
+        "src": "dev/prog/2",
+        "price": 194.99
+      },
+      {
+        "name": "The Python Mega Course: Build 10 Real World Applications",
+        "desc": "Start Python from the basics and learn how to create 10 amazing and professional Python programs used in the real world!",
+        "rating": 4.4,
+        "students": 118259,
+        "instructor": "Ardit Sulce",
+        "bestSeller": false,
+        "src": "dev/prog/3",
+        "price": 199.99
+      },
+      {
+        "name": "The Complete Node.js Developer Course (2nd Edition)",
+        "desc": "Learn Node.js by building real-world applications with Node, Express, MongoDB, Mocha, and more!",
+        "rating": 4.6,
+        "students": 116899,
+        "instructor": "Andrew Mead",
+        "bestSeller": true,
+        "src": "dev/prog/4",
+        "price": 84.99
+      }
+    ]
+  },
+  "Business": {
+    "Finance": [
+      {
+        "name": "The Complete Financial Analyst Course 2019",
+        "desc": "Excel, Accounting, Financial Statement Analysis, Business Analysis, Financial Math, PowerPoint: Everything is included!",
+        "rating": 4.5,
+        "students": 95178,
+        "instructor": "365 Careers",
+        "bestSeller": true,
+        "src": "bus/fin/1",
+        "price": 194.99
+      },
+      {
+        "name": "Beginner to Pro in Excel: Financial Modeling and Valuation",
+        "desc": "Financial Modeling in Excel that would allow you to walk into a job and be a rockstar from day one!",
+        "rating": 4.5,
+        "students": 64162,
+        "instructor": "365 Careers",
+        "bestSeller": true,
+        "src": "bus/fin/2",
+        "price": 194.99
+      },
+      {
+        "name": "The Complete Financial Analyst Training & Investing Course",
+        "desc": "Succeed as a Financial Analyst &Investor by Award Winning MBA Prof who worked @Goldman, in Hedge Funds & Venture Capital",
+        "rating": 4.5,
+        "students": 42475,
+        "instructor": "Chris Haroun",
+        "bestSeller": true,
+        "src": "bus/fin/3",
+        "price": 199.99
+      },
+      {
+        "name": "The Complete Investment Banking Course 2019",
+        "desc": "The #1 Course to Land a Job in Investment Banking. IPOs, Bonds, M&A, Trading, LBOs, Valuation: Everything is included!",
+        "rating": 4.4,
+        "students": 40753,
+        "instructor": "365 Careers",
+        "bestSeller": true,
+        "src": "bus/fin/4",
+        "price": 194.99
+      }
+    ],
+    "Entrepreneurship": [
+      {
+        "name": "An Entire MBA in 1 Course: Award Winning Business School Prof",
+        "desc": "#1 Best Selling Business Course! Everything You Need to Know About Business from Start-up to IPO",
+        "rating": 4.4,
+        "students": 186464,
+        "instructor": "Chris Haroun",
+        "bestSeller": true,
+        "src": "bus/ent/1",
+        "price": 199.99
+      },
+      {
+        "name": "Seth Godlin's Freelancer Course",
+        "desc": "Become Remarkable, Find Better Clients, and Do Work That Matters",
+        "rating": 4.6,
+        "students": 23476,
+        "instructor": "Seth Godlin",
+        "bestSeller": true,
+        "src": "bus/ent/2",
+        "price": 199.99
+      },
+      {
+        "name": "Build a Shopify Dropshipping Business from Scratch",
+        "desc": "Start your own business from anywhere in the world, and learn from a 6-Figure e-Commerce Shopify Entrepreneur",
+        "rating": 4.3,
+        "students": 21709,
+        "instructor": "Adam Reed",
+        "bestSeller": true,
+        "src": "bus/ent/3",
+        "price": 199.99
+      },
+      {
+        "name": "How to come up with killer business ideas: complete workshop",
+        "desc": "Learn how to become a business idea machine with proven strategies and actionable insights",
+        "rating": 4.4,
+        "students": 59341,
+        "instructor": "Evan Kimbrell",
+        "bestSeller": false,
+        "src": "bus/ent/4",
+        "price": 169.99
+      }
+    ]
+  },
+  "IT and Software": {
+    "Hardware": [
+      {
+        "name": "Tech Explorations Arduino Step by Step: Getting Started",
+        "desc": "The original comprehensive course designed for new Arduino Makers",
+        "rating": 4.6,
+        "students": 13013,
+        "instructor": "Dr. Peter Dalmaris",
+        "bestSeller": true,
+        "src": "it/hw/1",
+        "price": 99.99
+      },
+      {
+        "name": "Mastering Microcontroller with Embedded Driver Development",
+        "desc": "Learn from Scratch Microcontroller & Peripheral Driver Development for STM32 GPIO,I2C,SPI,USART using Embedded C",
+        "rating": 4.4,
+        "students": 11297,
+        "instructor": "FastBit Embedded Brain Academy",
+        "bestSeller": true,
+        "src": "it/hw/2",
+        "price": 49.99
+      },
+      {
+        "name": "Learn 5 PLCs in a Day-AB, Siemens, Schneider, Omron & Delta",
+        "desc": "PLC Programming of Allen Bradley, Delta, Siemens, Omron & Schneider using LIVE Examples with HMI Interfacing",
+        "rating": 4.3,
+        "students": 9552,
+        "instructor": "Rajvir Singh",
+        "bestSeller": true,
+        "src": "it/hw/3",
+        "price": 49.99
+      },
+      {
+        "name": "Tech Explorations™ Arduino Step by Step Getting Serious",
+        "desc": "Create Arduino gadgets that can communicate, move, interact, measure and detect.",
+        "rating": 4.6,
+        "students": 8933,
+        "instructor": "Dr. Peter Dalmaris",
+        "bestSeller": false,
+        "src": "it/hw/4",
+        "price": 199.99
+      }
+    ],
+    "Operating Systems": [
+      {
+        "name": "Learn Linux in 5 Days and Level Up Your Career",
+        "desc": "Use the in-demand Linux skills you learn in this course to get promoted or start a new career as a Linux professional.",
+        "rating": 4.4,
+        "students": 79195,
+        "instructor": "Jason Cannon",
+        "bestSeller": true,
+        "src": "it/os/1",
+        "price": 194.99
+      },
+      {
+        "name": "Linux Administration Bootcamp: Go from Beginner to Advanced",
+        "desc": "Learn Red Hat Linux & CentOS: Use the in-demand skills to start a career as a Linux Server Admin or Linux Administrator!",
+        "rating": 4.5,
+        "students": 32846,
+        "instructor": "Jason Cannon",
+        "bestSeller": true,
+        "src": "it/os/2",
+        "price": 199.99
+      },
+      {
+        "name": "Learn Linux Administration and Supercharge Your Career",
+        "desc": "Use the in-demand Linux skills you learn in this course to get promoted or start a new career as a Linux System Admin.",
+        "rating": 4.3,
+        "students": 19871,
+        "instructor": "Jason Cannon",
+        "bestSeller": false,
+        "src": "it/os/3",
+        "price": 194.99
+      },
+      {
+        "name": "Learning Windows PowerShell",
+        "desc": "A comprehensive guide to using Windows PowerShell for System Administrators",
+        "rating": 4.3,
+        "students": 18592,
+        "instructor": "Infinite Skills",
+        "bestSeller": true,
+        "src": "it/os/4",
+        "price": 49.99
+      }
+    ]
+  },
+  "Design": {
+    "Web Design": [
+      {
+        "name": "WordPress Theme Development with Bootstrap",
+        "desc": "Learn how to confidently develop custom & profitable Responsive WordPress Themes and Websites with no prior experience.",
+        "rating": 4.4,
+        "students": 40238,
+        "instructor": "Brad Hussey",
+        "bestSeller": false,
+        "src": "des/web/1",
+        "price": 174.99
+      },
+      {
+        "name": "Wordpress for Beginners - Master Wordpress Quickly",
+        "desc": "In 2019, build a beautiful responsive Wordpress site that looks great on all devices. No experience required.",
+        "rating": 4.4,
+        "students": 32606,
+        "instructor": "Andrew Williams",
+        "bestSeller": true,
+        "src": "des/web/2",
+        "price": 194.99
+      },
+      {
+        "name": "DESIGN RULES: Principles + Practices for Great UI Design",
+        "desc": "Learn to design powerful user interfaces for apps, sites and systems",
+        "rating": 4.6,
+        "students": 7209,
+        "instructor": "Joe Natoli",
+        "bestSeller": true,
+        "src": "des/web/3",
+        "price": 99.99
+      },
+      {
+        "name": "UI & Web Design using Adobe Illustrator CC",
+        "desc": "Build professional web & app designs using Adobe Illustrator CC",
+        "rating": 4.5,
+        "students": 8076,
+        "instructor": "Daniel Walter Scott",
+        "bestSeller": false,
+        "src": "des/web/4",
+        "price": 199.99
+      }
+    ],
+    "Game Design": [
+      {
+        "name": "Pixel art for Video games",
+        "desc": "The essential course for creating stunning pixel art graphics for video-games or stylish illustrations and designs",
+        "rating": 4.4,
+        "students": 16301,
+        "instructor": "Marco Vale",
+        "bestSeller": false,
+        "src": "des/game/1",
+        "price": 69.99
+      },
+      {
+        "name": "Ultimate Guide to Digital Sketching: Beginner to Advanced",
+        "desc": "Learn to digitally draw like a pro!",
+        "rating": 4.4,
+        "students": 20990,
+        "instructor": "Austin Batchelor",
+        "bestSeller": true,
+        "src": "des/game/2",
+        "price": 109.99
+      },
+      {
+        "name": "Photorealistic Digital Painting From Beginner To Advanced.",
+        "desc": "Bring your imagination to life!",
+        "rating": 4.3,
+        "students": 26227,
+        "instructor": "Austin Batchelor",
+        "bestSeller": false,
+        "src": "des/game/3",
+        "price": 109.99
+      },
+      {
+        "name": "Digitally Painting Light and Color: Amateur to Master",
+        "desc": "Learn the fundamentals of light and color and take your art to the next level.",
+        "rating": 4.4,
+        "students": 18645,
+        "instructor": "Austin Batchelor",
+        "bestSeller": false,
+        "src": "des/game/4",
+        "price": 139.99
+      }
+    ]
+  },
+  "Marketing": {
+    "Digital Marketing": [
+      {
+        "name": "The Complete Digital Marketing Course - 12 Courses in 1",
+        "desc": "Master Digital Marketing: Strategy, Social Media Marketing, SEO, YouTube, Email, Facebook Marketing, Analytics & More!",
+        "rating": 4.5,
+        "students": 235727,
+        "instructor": "Rob Percival",
+        "bestSeller": true,
+        "src": "mkt/dm/1",
+        "price": 199.99
+      },
+      {
+        "name": "Ultimate Google Ads / AdWords Course 2018 - Profit With PPC!",
+        "desc": "Google Ads: Learn how our clients have transformed their sales using google AdWords & get your AdWords certification!",
+        "rating": 4.6,
+        "students": 103849,
+        "instructor": "Isaac Rudansky",
+        "bestSeller": false,
+        "src": "mkt/dm/2",
+        "price": 199.99
+      },
+      {
+        "name": "Digital Marketing Masterclass - 23 Courses in 1",
+        "desc": "Grow Your Business with Digital Marketing: Social Media Marketing, Facebook, Content, YouTube, Email Marketing, Websites",
+        "rating": 4.4,
+        "students": 34941,
+        "instructor": "Phil Ebner",
+        "bestSeller": false,
+        "src": "mkt/dm/3",
+        "price": 199.99
+      },
+      {
+        "name": "Google Ads / AdWords Certification - Get Certified in 2 Days",
+        "desc": "Get a Job & Earn More with Your Google AdWords Certification. Become Google Ads Certified in Just 2 Days. 2019 Version",
+        "rating": 4.4,
+        "students": 23511,
+        "instructor": "Daragh Walsh",
+        "bestSeller": true,
+        "src": "mkt/dm/4",
+        "price": 199.99
+      }
+    ],
+    "Search Engine Optimization": [
+      {
+        "name": "SEO 2019: Complete SEO Training + SEO for WordPress Websites",
+        "desc": "Rank 1 on Google with Technical SEO, 0.5s Pagespeed, UX SEO, Backlink SEO, Keyword Research SEO + WordPress SEO Training",
+        "rating": 4.4,
+        "students": 34419,
+        "instructor": "Arun Nagarathanam",
+        "bestSeller": true,
+        "src": "mkt/seo/1",
+        "price": 199.99
+      },
+      {
+        "name": "How I Hit #1 on Google: The 2019 Complete SEO Course",
+        "desc": "Secrets to Improve Search Position, Conversions, Traffic, Sales, Page Speed, Content, Shares & Links",
+        "rating": 4.3,
+        "students": 21643,
+        "instructor": "iMarket XL",
+        "bestSeller": false,
+        "src": "mkt/seo/2",
+        "price": 194.99
+      },
+      {
+        "name": "The Complete SEO Guide to Ranking Local Business Websites",
+        "desc": "Watch over my shoulder as I redesign and rank a real live client local business website on the 1st page of Google",
+        "rating": 4.4,
+        "students": 17883,
+        "instructor": "Christine Maisel",
+        "bestSeller": true,
+        "src": "mkt/seo/3",
+        "price": 199.99
+      },
+      {
+        "name": "Complete SEO Training With Top SEO Expert Peter Kent!",
+        "desc": "Win The SEO Game & Dominate The Search Engines With the Author of Best-Selling Search Engine Optimization for Dummies.",
+        "rating": 4.4,
+        "students": 23169,
+        "instructor": "Peter Kent",
+        "bestSeller": false,
+        "src": "mkt/seo/4",
+        "price": 199.99
+      }
+    ]
+  }
+}

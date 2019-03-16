@@ -1,0 +1,52 @@
+.wrap {
+  background: rgba(46, 49, 49, 1);
+}
+
+.center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+h2 {
+  color: white;
+  font-weight: bold;
+  font-family: 'Yellowtail', sans-serif;
+  user-select: none;
+}
+
+textarea {
+  width: 100%;
+  height: 200px;
+}
+
+.form-group {
+  margin-bottom: 0;
+}
+
+label {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgba(46, 49, 49, 1);
+}
+
+.card-body {
+  padding-top: .5rem;
+}
+
+#info {
+  font-family: 'Yellowtail', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: white;
+}
+
+#info span {
+  user-select: none;
+}
+
+#info a {
+  font-family: 'Lato', sans-serif;
+  color: inherit;
+}
