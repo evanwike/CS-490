@@ -8,23 +8,57 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.SeekBar;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.Locale;
 
+
 public class MainActivity extends AppCompatActivity {
-    private int[] bases = {R.id.base1, R.id.base2, R.id.base3};
-    private double[] basePrices = {5.99, 5.99, 6.99};
 
-    private int[] ingredients = {R.id.cheese1, R.id.cheese2, R.id.ing1, R.id.ing2, R.id.ing3, R.id.ing4};
-    private double[] ingredientsPrices = {1.99, 2.99, 1.99, 1.99, 1.99, 2.99};
+    class Base {
+        private int id;
+        private String value;
+        private double price;
 
-    ArrayList<String> options = new ArrayList<>();
-    double sum = 0.0;
+        Base(int id, String value, double price) {
+            this.id = id;
+            this.value = value;
+            this.price = price;
+        }
+
+        public int getId() { return id; }
+        public double getPrice() { return price; }
+        public String getDisplayStr() {
+            return String.format(Locale.US, "%s (+$%.2f)", value, price);
+        }
+    }
+
+    class Ingredient {
+        private int id;
+        private String value;
+        private double price;
+
+        Ingredient(int id, String value, double price) {
+            this.id = id;
+            this.value = value;
+            this.price = price;
+        }
+
+        public int getId() { return id; }
+        public double getPrice() { return price; }
+        public boolean isChecked() {
+            CheckBox option = findViewById(id);
+            return option.isChecked();
+        }
+        public String getDisplayStr() {
+            return String.format(Locale.US, "%s (+$%.2f)", value, price);
+        }
+    }
+
+    ArrayList<Base> bases = initBases();
+    ArrayList<Ingredient> ingredients = initIngredients();
     int qty = 0;
 
     @Override
@@ -44,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 String valString = Integer.toString(progress);
                 displayQty.setText(valString);
+                qty = progress;
             }
 
             @Override
@@ -61,30 +96,11 @@ public class MainActivity extends AppCompatActivity {
                 EditText usernameCtrl = findViewById(R.id.username);
                 String username = usernameCtrl.getText().toString();
 
-                // Get base
-                RadioGroup basesGroup = findViewById(R.id.bases);
-                int baseID = basesGroup.getCheckedRadioButtonId();
-                RadioButton base = findViewById(baseID);
+                // Get sum of order
+                double sum = getSum();
 
-                for (int i = 0; i < bases.length; i++) {
-                    if (bases[i] == baseID) {
-                        sum += basePrices[i];
-                        options.add(base.getText().toString());
-                    }
-                }
-
-                // Get options
-                for (int i = 0; i < ingredients.length; i++) {
-                    CheckBox option = findViewById(ingredients[i]);
-
-                    if (option.isChecked()) {
-                        sum += ingredientsPrices[i];
-                        options.add(option.getText().toString());
-                    }
-                }
-
-                SeekBar seekBar = findViewById(R.id.seek_qty);
-                qty = seekBar.getProgress();
+                // Get selected options as list of strings
+                ArrayList<String> options = getOptions();
 
                 redirectToSummary(v, username, sum, options, qty);
             }
@@ -102,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
                 email.putExtra(Intent.EXTRA_SUBJECT, String.format("MyPizza - Order from %s!", username));
 
                 // Body of email
+                double sum = getSum();
+                ArrayList<String> options = getOptions();
                 StringBuilder body = new StringBuilder();
 
                 body.append(String.format("Customer: %s\n\n", username));
@@ -116,6 +134,85 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(Intent.createChooser(email, "Send order..."));
             }
         });
+    }
+
+    public double getSum() {
+        double sum = 0.0;
+        Base base = getSelectedBase();
+        ArrayList<Ingredient> ingredients = getSelectedIngredients();
+
+        sum += base.getPrice();
+
+        for (Ingredient ingredient : ingredients)
+            sum += ingredient.getPrice();
+
+        return sum;
+    }
+
+    public ArrayList<String> getOptions() {
+        ArrayList<String> options = new ArrayList<>();
+        Base base = getSelectedBase();
+        ArrayList<Ingredient> ingredients = getSelectedIngredients();
+
+        options.add(base.getDisplayStr());
+
+        for (Ingredient ingredient : ingredients)
+            options.add(ingredient.getDisplayStr());
+
+        return options;
+    }
+
+    public Base getSelectedBase() {
+        RadioGroup basesGroup = findViewById(R.id.bases);
+        int baseID = basesGroup.getCheckedRadioButtonId();
+        Base base = new Base(0, "", 0.0);
+
+        for (Base b : bases)
+            if (b.getId() == baseID)
+                base = b;
+
+        return base;
+    }
+
+    public ArrayList<Ingredient> getSelectedIngredients() {
+        ArrayList<Ingredient> selected = new ArrayList<>();
+
+        for (Ingredient ingredient : ingredients) {
+            if (ingredient.isChecked()) {
+                selected.add(ingredient);
+            }
+        }
+
+        return selected;
+    }
+
+    public ArrayList<Base> initBases() {
+        ArrayList<Base> bases = new ArrayList<>();
+        int[] ids = {R.id.base1, R.id.base2, R.id.base3};
+        String[] options = {"Marinara", "Pesto", "BBQ"};
+        double[] prices = {5.99, 5.99, 6.99};
+
+        for (int i = 0; i < ids.length; i++) {
+            Base base = new Base(ids[i], options[i], prices[i]);
+            bases.add(base);
+        }
+
+        return bases;
+    }
+
+    public ArrayList<Ingredient> initIngredients() {
+        ArrayList<Ingredient> ingredients = new ArrayList<>();
+        int[] ids = {R.id.cheese1, R.id.cheese2, R.id.ing1, R.id.ing2, R.id.ing3, R.id.ing4};
+        String[] options = {"Mozzarella", "Provolone", "Pepperoni", "Sausage", "Hamburger", "Bacon"};
+        double[] prices = {1.99, 2.99, 1.99, 1.99, 1.99, 2.99};
+
+
+        for (int i = 0; i < ids.length; i++) {
+            Ingredient ingredient = new Ingredient(ids[i], options[i], prices[i]);
+            ingredients.add(ingredient);
+        }
+
+        return ingredients;
     }
 
     public void redirectToSummary(View v, String username, double sum, ArrayList<String> options, int qty) {
