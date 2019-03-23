@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">MyPizza</string>
+
+    <!-- Main Activity -->
+    <string name="display_name">Name</string>
+
+    <!-- Base -->
+    <string name="baseView">Base (select one)</string>
+    <string name="base1">Marinara (+$5.99)</string>
+    <string name="base2">Pesto (+$5.99)</string>
+    <string name="base3">BBQ (+$6.99)</string>
+
+    <!-- Cheese -->
+    <string name="cheeseView">Cheese</string>
+    <string name="cheese1">Mozzarella (+$1.99)</string>
+    <string name="cheese2">Provolone (+$2.99)</string>
+
+    <!-- Ingredients -->
+    <string name="ingredientsView">Ingredients</string>
+    <string name="ing1">Pepperoni (+$1.99)</string>
+    <string name="ing2">Sausage (+$1.99)</string>
+    <string name="ing3">Hamburger (+$1.99)</string>
+    <string name="ing4">Bacon (+$2.99)</string>
+
+    <!-- Quantity -->
+    <string name="quantityView">Quantity</string>
+    <string name="qty">1</string>
+    <string name="btn_order">Order</string>
+    <string name="btn_summary">Summary</string>
+
+
+    <!-- Summary Activity -->
+    <string name="summaryView">Order Summary</string>
+    <string name="salesTax">Sales Tax: .07</string>
+    <string name="summaryBackBtn">Back</string>
+</resources>
