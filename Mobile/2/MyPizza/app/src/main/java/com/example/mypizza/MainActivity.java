@@ -17,12 +17,15 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
-
     private int[] bases = {R.id.base1, R.id.base2, R.id.base3};
     private double[] basePrices = {5.99, 5.99, 6.99};
 
     private int[] ingredients = {R.id.cheese1, R.id.cheese2, R.id.ing1, R.id.ing2, R.id.ing3, R.id.ing4};
     private double[] ingredientsPrices = {1.99, 2.99, 1.99, 1.99, 1.99, 2.99};
+
+    ArrayList<String> options = new ArrayList<>();
+    double sum = 0.0;
+    int qty = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +57,6 @@ public class MainActivity extends AppCompatActivity {
         Button summary = findViewById(R.id.btn_summary);
         summary.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                double sum = 0;
-                ArrayList<String> options = new ArrayList<>();
-
                 // Get username
                 EditText usernameCtrl = findViewById(R.id.username);
                 String username = usernameCtrl.getText().toString();
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 SeekBar seekBar = findViewById(R.id.seek_qty);
-                int qty = seekBar.getProgress();
+                qty = seekBar.getProgress();
 
                 redirectToSummary(v, username, sum, options, qty);
             }
@@ -100,7 +100,19 @@ public class MainActivity extends AppCompatActivity {
                 EditText usernameCtrl = findViewById(R.id.username);
                 String username = usernameCtrl.getText().toString();
                 email.putExtra(Intent.EXTRA_SUBJECT, String.format("MyPizza - Order from %s!", username));
-                email.putExtra(Intent.EXTRA_TEXT, "Body");
+
+                // Body of email
+                StringBuilder body = new StringBuilder();
+
+                body.append(String.format("Customer: %s\n\n", username));
+
+                for (String option : options)
+                    body.append(String.format("%s\n", option));
+
+                body.append(String.format(Locale.US, "\nSubtotal: $%.2f (QTY. %d)\n", sum, qty));
+                body.append(String.format(Locale.US, "Total: $%.2f", sum * qty + (sum * qty * .07)));
+
+                email.putExtra(Intent.EXTRA_TEXT, body.toString());
                 startActivity(Intent.createChooser(email, "Send order..."));
             }
         });
