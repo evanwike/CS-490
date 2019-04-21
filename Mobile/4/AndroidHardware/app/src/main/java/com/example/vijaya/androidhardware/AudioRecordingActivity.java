@@ -75,9 +75,20 @@ public class AudioRecordingActivity extends AppCompatActivity {
     }
 
     private void startRecording() {
+        // ICP Task3: Write the code to record the Audio
+        mRecorder = new MediaRecorder();
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+        mRecorder.setOutputFile(mFileName);
+        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
-        // ICP Task3: Write the code to recording the Audio
+        try {
+            mRecorder.prepare();
+        } catch (IOException e) {
+            Log.e(LOG_TAG, "prepare() failed");
+        }
 
+        mRecorder.start();
     }
 
 

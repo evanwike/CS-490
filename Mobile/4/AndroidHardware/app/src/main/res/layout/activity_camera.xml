@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:onClick="callCamera"
+        android:onClick="activateCamera"
         android:text="Take photo" />
 
     <Button

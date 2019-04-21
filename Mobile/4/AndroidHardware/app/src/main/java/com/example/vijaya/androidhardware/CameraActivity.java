@@ -1,8 +1,12 @@
 package com.example.vijaya.androidhardware;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,13 +27,18 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
         Button capture = (Button) findViewById(R.id.btn_take_photo);
         userImage = (ImageView) findViewById(R.id.view_photo);
-
-        // ICP Task2: Write the code to capture the image
-
-
     }
 
-    public void callCamera(View v) {
+    public void activateCamera(View v) {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            @NonNull String[] permissions = {Manifest.permission.CAMERA};
+            ActivityCompat.requestPermissions(this, permissions, MY_CAMERA_REQUEST_CODE);
+        } else {
+            callCamera();
+        }
+    }
+
+    public void callCamera() {
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (cameraIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(cameraIntent, TAKE_PHOTO_CODE);
@@ -50,5 +59,16 @@ public class CameraActivity extends AppCompatActivity {
     public void redirectToHome(View v) {
         Intent redirect = new Intent(CameraActivity.this, MainActivity.class);
         startActivity(redirect);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == MY_CAMERA_REQUEST_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                callCamera();
+            } else {
+                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }
