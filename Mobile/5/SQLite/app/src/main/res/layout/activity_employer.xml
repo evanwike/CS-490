@@ -73,11 +73,30 @@
                 android:layout_marginBottom="30dp"
                 android:text="@string/search" />
 
+            <Button
+                android:id="@+id/deleteButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/foundedInputLayout"
+                android:layout_marginTop="0dp"
+                android:layout_centerHorizontal="true"
+                android:text="Delete" />
+
+            <Button
+                android:id="@+id/editButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/deleteButton"
+                android:layout_marginTop="0dp"
+                android:layout_centerHorizontal="true"
+                android:text="Edit" />
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recycleView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/saveButton" />
+                android:layout_below="@id/saveButton"
+                android:layout_marginTop="20dp"/>
 
         </RelativeLayout>
     </ScrollView>
