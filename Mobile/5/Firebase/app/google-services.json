@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "600421598749-7ehhhjc5ngampph9kqdcqu24teblhodp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vijaya.firebase",
+            "certificate_hash": "a2cd6064605d95d50e71544b4580b2af1cf23a39"
+          }
+        },
+        {
           "client_id": "600421598749-qkpb5tbq927kkvc6r02g7j9fh1aedrpo.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

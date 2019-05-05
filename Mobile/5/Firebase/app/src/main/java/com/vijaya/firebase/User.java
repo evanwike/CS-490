@@ -1,9 +1,5 @@
 package com.vijaya.firebase;
 
-/**
- * Created by Vijaya on 11/15/2018.
- */
-
 public class User {
         public String name;
         public String phone;
