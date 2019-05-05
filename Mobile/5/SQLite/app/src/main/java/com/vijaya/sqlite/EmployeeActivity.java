@@ -223,8 +223,11 @@ public class EmployeeActivity extends AppCompatActivity {
 
         if (cursor.getCount() > 0) {
             cursor.moveToPosition(0);
-            database.delete(SampleDBContract.Employee.TABLE_NAME, "employer_id=?", new String[] {cursor.getString(
-                    cursor.getColumnIndexOrThrow(SampleDBContract.Employee.COLUMN_EMPLOYER_ID))});
+            database.delete(SampleDBContract.Employee.TABLE_NAME, "lastname=? AND firstname=? AND employer_id=?", new String[] {cursor.getString(
+                    cursor.getColumnIndexOrThrow(SampleDBContract.Employee.COLUMN_LASTNAME)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(SampleDBContract.Employee.COLUMN_FIRSTNAME)),
+                    cursor.getString(cursor.getColumnIndexOrThrow(SampleDBContract.Employee.COLUMN_EMPLOYER_ID))
+            });
 
             Toast.makeText(this, "Success! Employee deleted.", Toast.LENGTH_SHORT).show();
         }
