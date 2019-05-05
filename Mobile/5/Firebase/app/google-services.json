@@ -1,39 +1,45 @@
 {
   "project_info": {
-    "project_number": "160418858088",
-    "firebase_url": "https://webmobiledevelop-1541827604685.firebaseio.com",
-    "project_id": "webmobiledevelop-1541827604685",
-    "storage_bucket": "webmobiledevelop-1541827604685.appspot.com"
+    "project_number": "600421598749",
+    "firebase_url": "https://cs-490-mobile-icp-5.firebaseio.com",
+    "project_id": "cs-490-mobile-icp-5",
+    "storage_bucket": "cs-490-mobile-icp-5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:160418858088:android:e3738caa8d384c79",
+        "mobilesdk_app_id": "1:600421598749:android:e3738caa8d384c79",
         "android_client_info": {
           "package_name": "com.vijaya.firebase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "160418858088-cmnaibj0rc48bla95nb0t2273974m02u.apps.googleusercontent.com",
+          "client_id": "600421598749-qkpb5tbq927kkvc6r02g7j9fh1aedrpo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vijaya.firebase",
+            "certificate_hash": "aefe408a994cc8eba414d82f4b644b2dbe149efd"
+          }
+        },
+        {
+          "client_id": "600421598749-f3hv4129glsrkkgdktmd9jhd7nakpgg4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBDlUAWdLoambGLT1Qgd0RiEJhHF-zvQfs"
+          "current_key": "AIzaSyCnCCCyoZm8e7BdWecYNDW5ri1yJXyta0M"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
-        },
-        "ads_service": {
-          "status": 2
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600421598749-f3hv4129glsrkkgdktmd9jhd7nakpgg4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
