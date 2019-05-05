@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -49,10 +50,20 @@ public class EmployerActivity extends AppCompatActivity {
                 deleteFromDB();
             }
         });
-        binding.editButton.setOnClickListener(new View.OnClickListener() {
+        binding.employerEditBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 editDB();
+            }
+        });
+
+        Button back = findViewById(R.id.employerBackBtn);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(EmployerActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }
@@ -170,9 +181,11 @@ public class EmployerActivity extends AppCompatActivity {
 
             Toast.makeText(this, "Success! Employer deleted.", Toast.LENGTH_SHORT).show();
         }
+
+        cursor.close();
     }
 
-    public void editDB() {
+    private void editDB() {
         String name = binding.nameEditText.getText().toString();
         String desc = binding.descEditText.getText().toString();
         long date = 0;
@@ -181,15 +194,6 @@ public class EmployerActivity extends AppCompatActivity {
             Toast.makeText(this, "Name and description fields cannot be empty", Toast.LENGTH_SHORT).show();
             return;
         }
-
-        try {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime((new SimpleDateFormat("dd/MM/yyyy")).parse(
-                    binding.foundedEditText.getText().toString()));
-            date = calendar.getTimeInMillis();
-        } catch (Exception e) {
-        }
-
         SQLiteDatabase database = new SampleDBSQLiteHelper(this).getReadableDatabase();
 
         String[] projection = {
@@ -201,10 +205,8 @@ public class EmployerActivity extends AppCompatActivity {
 
         String selection =
                 SampleDBContract.Employer.COLUMN_NAME + " like ? and " +
-//                        SampleDBContract.Employer.COLUMN_FOUNDED_DATE + " > ? and " +
                         SampleDBContract.Employer.COLUMN_DESCRIPTION + " like ?";
 
-//        String[] selectionArgs = {"%" + name + "%", date + "", "%" + desc + "%"};
         String[] selectionArgs = {"%" + name + "%", "%" + desc + "%"};
 
         Cursor cursor = database.query(
@@ -231,6 +233,8 @@ public class EmployerActivity extends AppCompatActivity {
         } else {
             Toast.makeText(this, "No Employer entries found by that name and description", Toast.LENGTH_SHORT).show();
         }
+
+        cursor.close();
     }
 
     public void clearInput() {

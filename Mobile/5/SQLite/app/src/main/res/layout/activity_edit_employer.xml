@@ -9,36 +9,39 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
+        android:padding="16dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/editHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Edit Employer"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
+
         <android.support.design.widget.TextInputEditText
             android:id="@+id/nameEditText3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Company Name"/>
+            android:hint="Company Name" />
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/descEditText3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Description"/>
+            android:hint="Description" />
 
         <android.support.design.widget.TextInputEditText
             android:id="@+id/foundedEditText3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="date"
-            android:hint="Founded Date (e.g. 23/04/2016)"/>
+            android:hint="Founded Date (e.g. 23/04/2016)"
+            android:inputType="date" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,8 +61,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/save"
-                android:onClick="updateDB"/>
+                android:onClick="updateDB"
+                android:text="Update" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

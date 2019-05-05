@@ -71,13 +71,11 @@ public class EditEmployer extends AppCompatActivity {
         }
 
         database.update(SampleDBContract.Employer.TABLE_NAME, values, "_id=?", new String[] {id});
-
         Toast.makeText(this, "Success! Employer updated", Toast.LENGTH_SHORT).show();
-
-        goBack(v);
+        goBack();
     }
 
-    public void goBack(View v) {
+    private void goBack() {
         Intent intent = new Intent(this, EmployerActivity.class);
         startActivity(intent);
     }
