@@ -105,21 +105,27 @@ public class MainActivity extends AppCompatActivity implements TextToSpeech.OnIn
         if (input.equals("hello")) {
             mTts.speak("What's your name?", TextToSpeech.QUEUE_FLUSH, null);
             mHintView.setText("Tap the mic and say \"My name is <name>\"");
-        } else if (input.contains("my name is") || input.contains("my name's")) {
+        }
+        else if (input.contains("my name is") || input.contains("my name's")) {
             setName(input.split(" ")[3]);
-        } else if (input.contains("not feeling good")) {
+        }
+        else if (input.contains("not feeling good")) {
             mTts.speak("I understand, what are your symptoms?", TextToSpeech.QUEUE_FLUSH, null);
-        } else if (input.contains("thank you") || input.contains("thanks")) {
+        }
+        else if (input.contains("thank you") || input.contains("thanks")) {
             mTts.speak(String.format("No problem, %s! Take care.", preferences.getString("name", "user")),
                     TextToSpeech.QUEUE_FLUSH,
                     null);
-        } else if (input.contains("medicines")) {
+        }
+        else if (input.contains("medicines")) {
             mTts.speak("I think you might have a fever... you should probably take some Aspirin.", TextToSpeech.QUEUE_FLUSH, null);
-        } else if (input.contains("time")) {
+        }
+        else if (input.contains("time")) {
             Calendar now = Calendar.getInstance();
             int hour = now.get(Calendar.HOUR_OF_DAY) == 0 ? 12 : now.get(Calendar.HOUR_OF_DAY);
             String min = now.get(Calendar.MINUTE) == 0 ? "o'clock" : String.format(Locale.US,"%d", now.get(Calendar.MINUTE));
             String half = "AM";
+
             if (hour > 11 && hour < 23) {
                 hour = hour - 12;
                 half = "PM";
