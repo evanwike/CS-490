@@ -22,6 +22,8 @@ public class CreateEventActivity extends AppCompatActivity {
     LinearLayout createLayout, timeSelectBtns;
     Intent intent;
     Calendar date;
+    Calendar startDate;
+    Calendar endDate;
 
 
     @Override
@@ -76,6 +78,7 @@ public class CreateEventActivity extends AppCompatActivity {
 
     public static class TimePickerFragment extends DialogFragment
             implements TimePickerDialog.OnTimeSetListener {
+        int btnId;
 
         @Override
         public Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -84,18 +87,29 @@ public class CreateEventActivity extends AppCompatActivity {
             int hour = c.get(Calendar.HOUR_OF_DAY);
             int minute = c.get(Calendar.MINUTE);
 
+            Bundle bundle = this.getArguments();
+            if (bundle != null)
+                btnId = bundle.getInt("id");
+
             // Create a new instance of TimePickerDialog and return it
             return new TimePickerDialog(getActivity(), this, hour, minute,
                     DateFormat.is24HourFormat(getActivity()));
         }
 
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            // TODO: Do something with selected time
+            // TODO: Implement interface for listener
+//            if (btnId == R.id.btnStartTime)
+//            else if (btnId == R.id.btnEndTime)
         }
     }
 
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new TimePickerFragment();
+        Bundle bundle = new Bundle();
+
+        bundle.putInt("id", v.getId());
+        newFragment.setArguments(bundle);
+
         newFragment.show(getSupportFragmentManager(), "timePicker");
     }
 }
