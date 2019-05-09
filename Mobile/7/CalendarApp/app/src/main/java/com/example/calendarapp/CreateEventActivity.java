@@ -39,9 +39,9 @@ public class CreateEventActivity extends AppCompatActivity {
     public void createEvent(View v) {
         Intent intent = new Intent(Intent.ACTION_INSERT, CalendarContract.Events.CONTENT_URI);
 
-        intent.putExtra(CalendarContract.Events.TITLE, editTitle.getText());
-        intent.putExtra(CalendarContract.Events.DESCRIPTION, editDesc.getText());
-        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, editLocation.getText());
+        intent.putExtra(CalendarContract.Events.TITLE, editTitle.getText().toString());
+        intent.putExtra(CalendarContract.Events.DESCRIPTION, editDesc.getText().toString());
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, editLocation.getText().toString());
         intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, date.getTimeInMillis());
         intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
 
