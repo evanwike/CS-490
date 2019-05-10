@@ -15,8 +15,9 @@ import java.util.GregorianCalendar;
 
 public class MainActivity extends AppCompatActivity {
     TextView dateView;
-    CalendarView calendar;
+    CalendarView calendarView;
     Button btnCreateEvent;
+    int YEAR, MONTH, DAY;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,22 +25,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         dateView = findViewById(R.id.dateView);
-        calendar = findViewById(R.id.calendarView);
+        calendarView = findViewById(R.id.calendarView);
         btnCreateEvent = findViewById(R.id.btnCreateEvent);
 
         // Set calendar to current date
-        calendar.setDate(Calendar.getInstance().getTimeInMillis());
+        calendarView.setDate(Calendar.getInstance().getTimeInMillis());
 
         // Set initial date string in dateView
         final DateFormat df = DateFormat.getDateInstance(DateFormat.LONG);
-        dateView.setText(df.format(calendar.getDate()));
+        dateView.setText(df.format(calendarView.getDate()));
 
         // Change date string in dateView when user selects a new date
-        calendar.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
             @Override
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 // Create new date object from parameters for long date format
                 Date date = new GregorianCalendar(year, month, dayOfMonth).getTime();
+                YEAR = year;
+                MONTH = month;
+                DAY = dayOfMonth;
+
                 dateView.setText(df.format(date));
             }
         });
@@ -49,7 +54,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, CreateEventActivity.class);
-                intent.putExtra("date", calendar.getDate());
+                intent.putExtra("year", YEAR);
+                intent.putExtra("month", MONTH);
+                intent.putExtra("day", DAY);
+//                intent.putExtra("date", calendarView.getDate());
 
                 startActivity(intent);
                 finish();
