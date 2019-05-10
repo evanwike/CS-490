@@ -5,8 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".CreateEventActivity"
-    android:layout_margin="16dp">
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    tools:context=".CreateEventActivity" >
 
     <TextView
         android:id="@+id/createEventHeader"
@@ -52,16 +53,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="@string/select_time"
                 android:textAlignment="center"
-                android:text="@string/select_time" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             <TextView
                 android:id="@+id/endTimeView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:text="@string/select_time"
                 android:textAlignment="center"
-                android:text="@string/select_time" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
         </LinearLayout>
 
         <LinearLayout

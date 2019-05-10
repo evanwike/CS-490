@@ -2,7 +2,8 @@
     <string name="app_name">CalendarApp</string>
 
     <!-- MainActivity -->
-    <string name="header">CalendarApp</string>
+    <string name="header">Calendar</string>
+    <string name="subheader">Select a date for your event</string>
     <string name="create_new_event">Create New Event</string>
 
     <!-- CreateEvent -->

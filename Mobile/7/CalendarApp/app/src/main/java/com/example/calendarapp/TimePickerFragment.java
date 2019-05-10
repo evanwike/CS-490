@@ -7,7 +7,6 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.text.format.DateFormat;
 import android.widget.TimePicker;
-
 import java.util.Calendar;
 
 public class TimePickerFragment extends DialogFragment implements
@@ -35,6 +34,7 @@ public class TimePickerFragment extends DialogFragment implements
                 DateFormat.is24HourFormat(getActivity()));
     }
 
+    // Callback for when user selects time, hour/min sent to interface listener
     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
         listener.onTimeSelected(hourOfDay, minute);
     }

@@ -41,9 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
                 // Create new date object from parameters for long date format
                 Date date = new GregorianCalendar(year, month, dayOfMonth).getTime();
-                YEAR = year;
-                MONTH = month;
-                DAY = dayOfMonth;
+                YEAR = year; MONTH = month; DAY = dayOfMonth;
 
                 dateView.setText(df.format(date));
             }
