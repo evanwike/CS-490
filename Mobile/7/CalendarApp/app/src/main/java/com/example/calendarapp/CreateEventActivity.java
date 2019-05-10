@@ -1,30 +1,34 @@
 package com.example.calendarapp;
 
-import android.app.Dialog;
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.provider.CalendarContract;
 import android.support.v4.app.DialogFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.TimePicker;
-import java.util.Calendar;
+import android.widget.TextView;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Locale;
 
-public class CreateEventActivity extends AppCompatActivity {
+public class CreateEventActivity extends AppCompatActivity implements TimePickerFragment.TimeSelectedListener {
     EditText editTitle, editDesc, editLocation;
+    TextView startTimeView, endTimeView;
     CheckBox chkAllDay;
-    LinearLayout createLayout, timeSelectBtns;
+    LinearLayout createLayout, timeSelect;
     Intent intent;
-    Calendar date;
-    Calendar startDate;
-    Calendar endDate;
-
+    int year, month, day;
+    Date selectedDate;
+    long startTime;
+    long endTime;
+    int timeSelectBtnId;
+    boolean allDayEvent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,25 +36,33 @@ public class CreateEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_event);
 
         intent = getIntent();
-        date = Calendar.getInstance();
+
+        year = intent.getIntExtra("year",0);
+        month = intent.getIntExtra("month",0);
+        day = intent.getIntExtra("day",0);
+        selectedDate = new GregorianCalendar(year, month, day).getTime();
 
         editTitle = findViewById(R.id.eventTitle);
         editDesc = findViewById(R.id.eventDesc);
+        startTimeView = findViewById(R.id.startTimeView);
+        endTimeView = findViewById(R.id.endTimeView);
         editLocation = findViewById(R.id.eventLocation);
         chkAllDay = findViewById(R.id.chkAllDay);
         createLayout = findViewById(R.id.createLayout);         // Parent view
-        timeSelectBtns = findViewById(R.id.timeSelectBtns);     // Layout containing time select buttons
-
-        date.setTimeInMillis(intent.getLongExtra("date", 0));
+        timeSelect = findViewById(R.id.timeSelect);     // Layout containing time select buttons
 
         // Remove time select buttons when "All Day Event" checkbox is checked
         chkAllDay.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                    createLayout.removeView(timeSelectBtns);
-                else
-                    createLayout.addView(timeSelectBtns, 3);
+                if (isChecked) {
+                    createLayout.removeView(timeSelect);
+                    allDayEvent = true;
+                }
+                else {
+                    createLayout.addView(timeSelect, 3);
+                    allDayEvent = false;
+                }
             }
         });
     }
@@ -69,46 +81,41 @@ public class CreateEventActivity extends AppCompatActivity {
         intent.putExtra(CalendarContract.Events.TITLE, editTitle.getText().toString());
         intent.putExtra(CalendarContract.Events.DESCRIPTION, editDesc.getText().toString());
         intent.putExtra(CalendarContract.Events.EVENT_LOCATION, editLocation.getText().toString());
-        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, date.getTimeInMillis());
-        intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+
+        if (allDayEvent) {
+            intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, selectedDate.getTime());
+            intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, true);
+        }
+        else {
+            intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, startTime);
+            intent.putExtra(CalendarContract.EXTRA_EVENT_END_TIME, endTime);
+            intent.putExtra(CalendarContract.EXTRA_EVENT_ALL_DAY, false);
+        }
 
         startActivity(intent);
         finish();
     }
 
-    public static class TimePickerFragment extends DialogFragment
-            implements TimePickerDialog.OnTimeSetListener {
-        int btnId;
+    @Override
+    public void onTimeSelected(int hours, int mins) {
+        Date date = new GregorianCalendar(year, month, day, hours, mins).getTime();
+        DateFormat df = new SimpleDateFormat("h:mm a", Locale.US);
 
-        @Override
-        public Dialog onCreateDialog(Bundle savedInstanceState) {
-            // Use the current time as the default values for the picker
-            final Calendar c = Calendar.getInstance();
-            int hour = c.get(Calendar.HOUR_OF_DAY);
-            int minute = c.get(Calendar.MINUTE);
-
-            Bundle bundle = this.getArguments();
-            if (bundle != null)
-                btnId = bundle.getInt("id");
-
-            // Create a new instance of TimePickerDialog and return it
-            return new TimePickerDialog(getActivity(), this, hour, minute,
-                    DateFormat.is24HourFormat(getActivity()));
-        }
-
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            // TODO: Implement interface for listener
-//            if (btnId == R.id.btnStartTime)
-//            else if (btnId == R.id.btnEndTime)
+        switch (timeSelectBtnId) {
+            case R.id.btnStartTime: {
+                startTime = date.getTime();
+                startTimeView.setText(df.format(date));
+            } break;
+            case R.id.btnEndTime: {
+                endTime = date.getTime();
+                endTimeView.setText(df.format(date));
+            } break;
         }
     }
 
     public void showTimePickerDialog(View v) {
         DialogFragment newFragment = new TimePickerFragment();
-        Bundle bundle = new Bundle();
-
-        bundle.putInt("id", v.getId());
-        newFragment.setArguments(bundle);
+        timeSelectBtnId = v.getId();
 
         newFragment.show(getSupportFragmentManager(), "timePicker");
     }
